@@ -1,0 +1,17 @@
+{
+  "name": "cordova.plugin.ocom.btprint",
+  "version": "0.0.1",
+  "description": "This plugin is meant to Access OCOM Printers through Bluetooth",
+  "cordova": {
+    "id": "cordova.plugin.ocom.btprint",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Mukopaje Singogo",
+  "license": "ISC"
+}
