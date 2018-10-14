@@ -2,7 +2,7 @@
 <plugin id="cordova.plugin.ocom.btprint" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 <name>OcomBtPrint</name>
 <js-module name="OcomBtPrint" src="www/OcomBtPrint.js">
-<clobbers target="cordova.plugins.OcomBtPrint" />
+<clobbers target="OcomBtPrint" />
 </js-module>
 <platform name="android">
 <config-file parent="/*" target="res/xml/config.xml">
@@ -10,11 +10,46 @@
 <param name="android-package" value="cordova.plugin.ocom.btprint.OcomBtPrint" />
 </feature>
 </config-file>
-<config-file parent="/*" target="AndroidManifest.xml">
+<config-file parent="/manifest" target="AndroidManifest.xml">
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 </config-file>
-<source-file src="src/android/libs/btsdk.jar" target-dir="src/cordova/plugin/ocom/btprint/OcomBtPrint" />
-<source-file src="src/android/libs/zixng.jar" target-dir="src/cordova/plugin/ocom/btprint/OcomBtPrint" />
-<source-file src="src/android/OcomBtPrint.java" target-dir="src/cordova/plugin/ocom/btprint/OcomBtPrint" />
-<hook type="after_plugin_install" src="hooks/after_plugin_install/hook-add-r-import.js" />
+<config-file parent="/manifest/application" target="AndroidManifest.xml">
+<activity
+android:name="zj.com.cn.bluetooth.sdk.OcomBtPrintActivity"
+android:launchMode="singleTop"
+android:configChanges="orientation|screenSize"
+android:label="@string/app_name" >
+<intent-filter>
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+</config-file>
+<source-file src="src/android/OcomBtPrint.java" target-dir="src/com/ocom/plugin/OcomBtPrint" />
+<source-file src="src/android/zj/com/cn/bluetooth/sdk/OcomBtPrintActivity.java" target-dir="src/com/ocom/btprinter" />
+<source-file src="src/android/zj/com/cn/bluetooth/sdk/DeviceListActivity.java" target-dir="src/com/ocom/btprinter" />
+<source-file src="src/android/zj/com/cn/bluetooth/sdk/BluetoothService.java" target-dir="src/com/ocom/btprinter" />
+<source-file src="src/android/lib/android/vidyoclient.jar" target-dir="libs" />
+<source-file src="src/android/lib/btsdk.jar" target-dir="libs" />
+<source-file src="src/android/lib/zixng.jar" target-dir="libs" />
+<source-file src="src/android/res/drawable/app_icon.png" target-dir="res/drawable" />
+<source-file src="src/android/res/drawable-hdpi/app_icon.png" target-dir="res/drawable-hdpi" />
+<source-file src="src/android/res/drawable-hdpi/ic_launcher.png" target-dir="res/drawable-hdpi" />
+<source-file src="src/android/res/drawable-mdpi/ic_launcher.png" target-dir="res/drawable-mdpi" />
+<source-file src="src/android/res/drawable-xhdpi/ic_launcher.png" target-dir="res/drawable-xhdpi" />
+<source-file src="src/android/res/drawable-xxhdpi/ic_launcher.png" target-dir="res/drawable-xxhdpi" />
+<source-file src="src/android/res/layout/custom_title.xml" target-dir="res/layout" />
+<source-file src="src/android/res/layout/device_list.xml" target-dir="res/layout" />
+<source-file src="src/android/res/layout/device_name.xml" target-dir="res/layout" />
+<source-file src="src/android/res/layout/main_activity.xml" target-dir="res/layout" />
+<source-file src="src/android/res/layout/main.xml" target-dir="res/layout" />
+<source-file src="src/android/res/layout/message.xml" target-dir="res/layout" />
+<source-file src="src/android/res/values/strings2.xml" target-dir="res/values" />
+<source-file src="src/android/res/values-ar/strings.xml" target-dir="res/values-ar" />
+<source-file src="src/android/res/values-ko/strings.xml" target-dir="res/values-ko" />
+<source-file src="src/android/res/values-th/strings.xml" target-dir="res/values-th" />
+<source-file src="src/android/res/values-zh-rCN/strings.xml" target-dir="res/values-zh-rCN" />
+<source-file src="src/android/res/values-zh-rHK/strings.xml" target-dir="res/values-zh-rHK" />
+<source-file src="src/android/res/values-zh-rTW/strings.xml" target-dir="res/values-zh-rTW" />
 </platform>
 </plugin>

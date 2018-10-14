@@ -48,10 +48,10 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Main_Activity extends Activity implements OnClickListener{
+public class OcomBtPrintActivity extends Activity implements OnClickListener{
 /******************************************************************************************************/
 	// Debugging
-	private static final String TAG = "Main_Activity";
+	private static final String TAG = "OcomBtPrintActivity";
 	private static final boolean DEBUG = true;
 /******************************************************************************************************/
 	// Message types sent from the BluetoothService Handler
